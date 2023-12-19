@@ -1,0 +1,37 @@
+{
+    "name": "group-chat",
+    "version": "1.0.0",
+    "description": "Group chat Application",
+    "main": "app.js",
+    "scripts": {
+        "start": "nodemon app.js"
+    },
+    "author": "sai charan arishanapally",
+    "license": "ISC",
+    "dependencies": {
+        "@aws-sdk/client-s3": "^3.476.0",
+        "aws-sdk": "^2.1415.0",
+        "bcrypt": "^5.1.0",
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.20.2",
+        "cors": "^2.8.5",
+        "cron": "^2.3.1",
+        "dotenv": "^16.3.1",
+        "express": "^4.18.2",
+        "helmet": "^7.0.0",
+        "jsonwebtoken": "^9.0.0",
+        "morgan": "^1.10.0",
+        "multer": "^1.4.5-lts.1",
+        "multer-s3": "^3.0.1",
+        "mysql2": "^3.4.1",
+        "nodemon": "^2.0.22",
+        "sequelize": "^6.32.1",
+        "socket.io": "^4.7.1",
+        "socket.io-client": "^4.7.1"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.14",
+        "postcss": "^8.4.24",
+        "tailwindcss": "^3.3.2"
+    }
+}

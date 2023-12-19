@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat</title>
+    <link href="/chat.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="flex h-screen antialiased text-gray-800">
+        <div class="flex flex-row h-full w-full overflow-x-hidden">
+          <div class="flex flex-col py-8 pl-6 pr-2 w-64 bg-white flex-shrink-0">
+            <div class="flex flex-row items-center justify-center h-12 w-full">
+              
+              <div class="text-center">
+                <img class="mx-auto w-48" src="/Web-capture_25-6-2023_13349_looka.com-_1_.webp" alt="filled-chat"/>  
+              
+            </div>
+              
+            </div>
+            <div
+              class="flex flex-col items-center bg-indigo-100 border border-gray-200 mt-4 w-full py-6 px-4 rounded-lg"
+            >
+              <div class="h-20 w-20 rounded-full border overflow-hidden">
+                <img
+                  src="https://avatars3.githubusercontent.com/u/2763884?s=128"
+                  alt="Avatar"
+                  class="h-full w-full"
+                />
+              </div>
+              <div class="text-sm font-semibold mt-2">Aminos Co.</div>
+              <div class="text-xs text-gray-500">Lead UI/UX Designer</div>
+              <div class="flex flex-row items-center mt-3">
+                <div
+                  class="flex flex-col justify-center h-4 w-8 bg-indigo-500 rounded-full"
+                >
+                  <div class="h-3 w-3 bg-white rounded-full self-end mr-1"></div>
+                </div>
+                <div class="leading-none ml-1 text-xs">Active</div>
+              </div>
+            </div>
+            <div class="flex flex-col items-start justify-between py-4 px-2 ">
+                <h1 class="text-3xl text-blue-200 ">Create group</h1>
+                <form id="group" onsubmit="creategroup(event)" class="flex flex-row items-center justify-between text-sm">
+                    <input type="text" name="groupname" id="groupname" class="flex w-2/3 border rounded-xl focus:outline-none focus:border-indigo-300 pl-4 h-10"
+                    placeholder="group name"/>
+                    
+                    <button type="submit" class="flex w-1/3 border rounded-xl focus:outline-none bg-blue-500 hover:bg-blue-600  text-white px-4 py-1 flex-shrink-0">Add</button>
+
+                </form>
+                
+              </div>
+            <div class="flex flex-col mt-8">
+                
+              <div class="flex flex-row items-center justify-between text-xs">
+                <span class="font-bold">groups</span>
+                <span
+                  class="flex items-center justify-center bg-gray-300 h-4 w-4 rounded-full"
+                  >4</span
+                >
+              </div>
+              <div class="flex flex-col space-y-1 mt-4 -mx-2 h-48 overflow-y-auto" id="activegroup">
+                
+              </div>
+              <div class="flex flex-row items-center justify-between text-xs mt-6">
+                <span class="font-bold">Archivied</span>
+                <span
+                  class="flex items-center justify-center bg-gray-300 h-4 w-4 rounded-full"
+                  >7</span
+                >
+              </div>
+              <div class="flex flex-col space-y-1 mt-4 -mx-2">
+                <button
+                  class="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2"
+                >
+                  <div
+                    class="flex items-center justify-center h-8 w-8 bg-indigo-200 rounded-full"
+                  >
+                    H
+                  </div>
+                  <div class="ml-2 text-sm font-semibold">Henry Boyd</div>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col flex-auto h-full p-6" id="chatheader">
+            <div
+              class="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 h-full p-4" 
+            >
+              <div class="flex flex-col h-full overflow-x-auto mb-4">
+                <div class="flex flex-col h-full">
+                  <div class="grid grid-cols-12 gap-y-2" id="chatui">
+                    
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4"
+              >
+              
+                <div>
+                  <button
+                    class="flex items-center justify-center text-gray-400 hover:text-gray-600"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+                <div class="flex-grow ml-4">
+                  <div class="relative w-full">
+                    <form id="myForm">
+                    <input
+                      type="text" name="message" id="message"
+                      class="flex w-full border rounded-xl focus:outline-none focus:border-indigo-300 pl-4 h-10"
+                    />
+                    <div >
+                        <button type="submit" id="sendmessage"
+                        class="flex items-center justify-center bg-blue-500 hover:bg-blue-600 rounded-xl text-white px-4 py-1 flex-shrink-0"
+                      >
+                        <span >Send</span>
+                        <span class="ml-2">
+                          <svg
+                            class="w-4 h-4 transform rotate-45 -mt-px"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                            ></path>
+                          </svg>
+                        </span>
+                      </button>
+                    </div>
+                    
+                    </form>
+                  </div>
+                </div>
+                
+            
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- <div>
+        <form id="myForm">
+            <input type="text" name="message" id="message">
+            <label for="message"></label>
+            <button type="submit">send</button>
+        </form>
+    </div> -->
+    <div id="msg">
+        
+
+    
+    </div>
+    <script src="/chat.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
+      integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
